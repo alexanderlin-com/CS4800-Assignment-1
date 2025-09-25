@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type="text"] {
+            width: 300px;
+            height: 40px;
+            font-size: 18px;
+            text-align: right;
+        }
+        button {
+            width: 70px;
+            height: 50px;
+            font-size: 18px;
+            margin: 5px;
+        }
+        .buttons {
+            width: 320px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+
+    <form method="POST">
+        <input type="text" name="expression" placeholder="Enter expression" required>
+        <button type="submit">=</button>
+    </form>
+
+    {% if result != "" %}
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+
+    <div class="buttons">
+        <!-- Simple layout: numbers and basic ops -->
+        <button onclick="appendChar('1')">1</button>
+        <button onclick="appendChar('2')">2</button>
+        <button onclick="appendChar('3')">3</button>
+        <button onclick="appendChar('+')">+</button><br>
+
+        <button onclick="appendChar('4')">4</button>
+        <button onclick="appendChar('5')">5</button>
+        <button onclick="appendChar('6')">6</button>
+        <button onclick="appendChar('-')">-</button><br>
+
+        <button onclick="appendChar('7')">7</button>
+        <button onclick="appendChar('8')">8</button>
+        <button onclick="appendChar('9')">9</button>
+        <button onclick="appendChar('*')">*</button><br>
+
+        <button onclick="appendChar('0')">0</button>
+        <button onclick="appendChar('.')">.</button>
+        <button onclick="appendChar('/')">/</button>
+        <button onclick="clearInput()">C</button><br>
+
+        <!-- Advanced ops -->
+        <button onclick="appendChar('math.sin(')">sin</button>
+        <button onclick="appendChar('math.cos(')">cos</button>
+        <button onclick="appendChar('math.tan(')">tan</button>
+        <button onclick="appendChar(')')">)</button><br>
+
+        <button onclick="appendChar('math.log(')">log</button>
+        <button onclick="appendChar('math.exp(')">exp</button>
+        <button onclick="appendChar('**')">^</button>
+    </div>
+
+    <script>
+        function appendChar(char) {
+            const input = document.querySelector("input[name='expression']");
+            input.value += char;
+        }
+        function clearInput() {
+            const input = document.querySelector("input[name='expression']");
+            input.value = "";
+        }
+    </script>
+</body>
+</html>
