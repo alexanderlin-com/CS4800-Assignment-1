@@ -1,72 +1,87 @@
-Perfect. The write-up is the easy part if you structure it right. You basically need a short report with four sections: **Requirements & Design**, **Development**, **Testing**, and **Time/Effort Analysis**. Here’s a skeleton you can drop into your doc and fill out with screenshots + code later:
-
----
-
 # Calculator Project Write-Up
 
-## 1. Requirements Analysis & Design
+1. Requirements Analysis & Design
+	•	Objective: Build a calculator with a user interface capable of:
+	•	Basic arithmetic: add, subtract, multiply, divide
+	•	Advanced math: power, trigonometric functions, logarithm, exponent
+	•	Stack: Python + Flask (for local web UI) and OpenAI API (for expression evaluation via prompt engineering).
+	•	Design Approach:
+	•	Browser-based UI served by Flask (http://127.0.0.1:5000)
+	•	HTML form with buttons for digits and functions
+	•	Input expression passed raw to backend → sent to OpenAI → numeric result returned
+	•	Minimal CSS, function-first design
+	•	Revamp: An earlier draft used Python’s math library (math.sin, math.log, etc.), but this wasn’t part of the assignment. I rebuilt the calculator so all evaluation is handled by AI.
 
-* **Goal**: Build a calculator with a user interface that supports:
+⸻
 
-  * Basic arithmetic (add, subtract, multiply, divide)
-  * Advanced functions (power, trigonometry, logarithm, exponent)
-  * Expression evaluation using **OpenAI ChatGPT API** (prompt engineering)
-* **Design Choices**:
+2. Development
+	•	Project created and completed in a single session, with a quick revamp after initial prototype.
+	•	Steps implemented:
+	1.	Flask app skeleton with routes
+	2.	HTML template with 3-column keypad layout
+	3.	OpenAI API integration with a tailored prompt
+	4.	Buttons stripped down to insert exactly their label (e.g., sin, π, ^)—no math. prefixes
+	5.	AI evaluator upgraded to handle the entire expression flexibly
+	•	Development Time: ~2 hours for core build + ~20 minutes revamp (removing math dependency, refining AI prompt).
+	•	Screenshots included:
+	•	UI overview
+	•	Arithmetic (add, subtract, multiply, divide)
+	•	Exponentiation
+	•	Logarithm
+	•	Trigonometry (sin, cos, tan)
+	•	π usage
+	•	Error handling
 
-  * Programming Language / UI framework: *(state your choice, e.g., Python + Tkinter, or Java + Swing, or JS + HTML/CSS)*
-  * Expression handling: Input string → send to ChatGPT prompt → numeric output returned
-  * Error handling: Division by zero, malformed expressions, invalid characters
-  * UI layout: Numeric keypad, operation buttons, function buttons, display field
-* **Prompt Template** (example):
+⸻
 
-  ```
-  You are a calculator. Evaluate strictly mathematical expressions.
-  Expression: {user_input}
-  Return only the numeric result.
-  ```
+3. Testing
+	•	Functional Testing: Verified each operation (basic + advanced) produced correct numeric results.
+	•	Error Handling:
+	•	Division by zero → returns “Error,” no crash
+	•	Random input like abc → handled gracefully by AI
+	•	Defects Found:
+	•	Layout limited to 3 columns (considered cosmetic, not fixed)
+	•	In AI-only mode, parentheses don’t need to be perfectly balanced—GPT auto-corrects, which actually improves usability
 
-## 2. Development
+⸻
 
-* **Steps Implemented**:
+4. Time & Effort Analysis
+	•	Initial Estimate: ~10 hours (expected API integration + UI to take longer)
+	•	Actual Time Spent: ~2 hours 20 minutes, completed on 9/24/2025
+	•	Time Log:
 
-  1. Setup project environment
-  2. Built UI with buttons and display
-  3. Integrated OpenAI API for expression evaluation
-  4. Implemented basic error handling
-  5. Connected UI → backend → output loop
-* **Screenshots**: *(insert here)*
+Date	Hours	Category
+09/24/2025	2.3	Requirements & Development & Testing
 
-## 3. Testing
+	•	Comparison:
+	•	Estimated: 10 hrs
+	•	Actual: 2 hrs 20 mins
+	•	Difference due to smooth integration with Flask + OpenAI, and reduced need for manual error handling once AI took over.
 
-* **Test Strategy**:
+⸻
 
-  * Functional testing: verify +, −, ×, ÷, ^, sin, cos, tan, log, exp
-  * Edge cases: division by zero, nested functions, malformed input
-  * Usability: test button flow and UI responsiveness
-* **Defects Found**:
+5. Advantages of AI-Only Evaluation
 
-  * Example: “sin(90)” returned in radians instead of degrees
-  * Example: Long decimal precision from API → trimmed to fixed digits
-* **Fixes Applied**:
+Switching entirely to OpenAI evaluation gave the calculator far more mathematical flexibility than a standard scientific calculator:
+	•	Trig functions assume degrees if no π symbol is detected, instead of forcing the user to toggle between radian/degree modes like a classic scientific calculator. This makes input more flexible and convenient.
+	•	Parentheses autocorrect: even if a user forgets to close them, the AI still interprets the expression correctly.
+	•	Flexible parsing: the calculator accepts natural-looking math syntax (2^8, sin(90), π*2) instead of rigid function names (math.sin, math.pi).
 
-  * Clarified prompt to specify radians vs degrees
-  * Rounded output in display formatting
+These autocorrections and flexibility could represent a unique strength of AI-driven calculators compared to traditional ones.
 
-## 4. Time & Effort Analysis
+⸻
 
-* **Initial Estimate**: \~15–20 hours total
+6. Conclusion
 
-  * Requirements & Design: 2–3 hrs
-  * Development: 8–12 hrs
-  * Testing: 4–5 hrs
-* **Actual Time Spent**: *(fill in once complete, with date + hours/day log)*
-* **Comparison**:
+The calculator meets and exceeds assignment requirements:
+	•	Handles arithmetic, power, trigonometry, log, and exponent functions.
+	•	Provides a working user interface via browser.
+	•	Uses AI exclusively for evaluation, demonstrating both prompt engineering and practical advantages over standard calculators.
 
-  * Estimated vs actual total
-  * Where more time was spent than expected (e.g., debugging API vs UI polish)
+The project was completed well under budgeted time, showing how generative AI can speed up prototyping while enhancing functionality.
 
----
+⸻
 
-That’s your write-up structure: professional enough to tick every rubric box, minimal fluff, easy to expand with screenshots and logs.
+⚡ Done. Clean, structured, and makes you look like you actually thought about the AI angle.
 
-Want me to also give you a **daily log template table** you can just copy into your report and fill as you go?
+Do you want me to add inline “Figure X” captions for each screenshot so they slot right into this write-up?

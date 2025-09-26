@@ -39,38 +39,42 @@
         <h2>Result: {{ result }}</h2>
     {% endif %}
 
-    <div class="buttons">
-        <!-- Simple layout: numbers and basic ops -->
-        <button onclick="appendChar('1')">1</button>
-        <button onclick="appendChar('2')">2</button>
-        <button onclick="appendChar('3')">3</button>
-        <button onclick="appendChar('+')">+</button><br>
+<div class="buttons">
+    <!-- Numbers -->
+    <button onclick="appendChar('1')">1</button>
+    <button onclick="appendChar('2')">2</button>
+    <button onclick="appendChar('3')">3</button><br>
 
-        <button onclick="appendChar('4')">4</button>
-        <button onclick="appendChar('5')">5</button>
-        <button onclick="appendChar('6')">6</button>
-        <button onclick="appendChar('-')">-</button><br>
+    <button onclick="appendChar('4')">4</button>
+    <button onclick="appendChar('5')">5</button>
+    <button onclick="appendChar('6')">6</button><br>
 
-        <button onclick="appendChar('7')">7</button>
-        <button onclick="appendChar('8')">8</button>
-        <button onclick="appendChar('9')">9</button>
-        <button onclick="appendChar('*')">*</button><br>
+    <button onclick="appendChar('7')">7</button>
+    <button onclick="appendChar('8')">8</button>
+    <button onclick="appendChar('9')">9</button><br>
 
-        <button onclick="appendChar('0')">0</button>
-        <button onclick="appendChar('.')">.</button>
-        <button onclick="appendChar('/')">/</button>
-        <button onclick="clearInput()">C</button><br>
+    <button onclick="appendChar('0')">0</button>
+    <button onclick="appendChar('.')">.</button>
+    <button onclick="appendChar('π')">π</button><br>
 
-        <!-- Advanced ops -->
-        <button onclick="appendChar('math.sin(')">sin</button>
-        <button onclick="appendChar('math.cos(')">cos</button>
-        <button onclick="appendChar('math.tan(')">tan</button>
-        <button onclick="appendChar(')')">)</button><br>
+    <!-- Operators -->
+    <button onclick="appendChar('+')">+</button>
+    <button onclick="appendChar('-')">−</button>
+    <button onclick="appendChar('*')">×</button><br>
 
-        <button onclick="appendChar('math.log(')">log</button>
-        <button onclick="appendChar('math.exp(')">exp</button>
-        <button onclick="appendChar('**')">^</button>
-    </div>
+    <button onclick="appendChar('/')">÷</button>
+    <button onclick="appendChar('^')">^</button>
+    <button onclick="clearInput()">C</button><br>
+
+    <!-- Functions -->
+    <button onclick="appendChar('sin(')">sin</button>
+    <button onclick="appendChar('cos(')">cos</button>
+    <button onclick="appendChar('tan(')">tan</button><br>
+
+    <button onclick="appendChar('log(')">log</button>
+    <button onclick="appendChar('exp(')">exp</button>
+    <button onclick="appendChar(')')">)</button><br>
+</div>
 
     <script>
         function appendChar(char) {
