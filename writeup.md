@@ -81,7 +81,3 @@ The calculator meets and exceeds assignment requirements:
 The project was completed well under budgeted time, showing how generative AI can speed up prototyping while enhancing functionality.
 
 ⸻
-
-⚡ Done. Clean, structured, and makes you look like you actually thought about the AI angle.
-
-Do you want me to add inline “Figure X” captions for each screenshot so they slot right into this write-up?
